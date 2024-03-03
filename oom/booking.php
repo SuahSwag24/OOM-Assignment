@@ -13,8 +13,7 @@
                 </tr>
                 <tr>
                     <th><label for="age">Age:</label></th>
-                    <td><input type="number" name="age" min="1" placeholder="Enter Age..."
-                    style="width: 100%; padding: 5px; text-align: center; border-collapse: collapse; border: 1px transparent;"></td>
+                    <td><input type="number" name="age" min="1" placeholder="Enter Age..."></td>
                 </tr>
                 <tr>
                     <th><label for="gender">Gender:</label></th>
@@ -30,8 +29,7 @@
                 </tr>
                 <tr>
                     <th><label for="pax">Pax:</label></th>
-                    <td><input type="number" name="pax" min="1" placeholder="Enter Number of People..." 
-                    style="width: 100%; padding: 5px; text-align: center; border-collapse: collapse; border: 1px transparent;"></td>
+                    <td><input type="number" name="pax" min="1" placeholder="Enter Number of People..."></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" id="Submit" value="Proceed"></td>
