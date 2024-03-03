@@ -5,7 +5,7 @@
         <h1>Hotpot Booking System</h1>
     </head>
     <div class="form">
-    <form action="package.php" method="post">
+    <form action="booking.php" method="post">
         <table>
                 <tr>
                     <th><label for="name">Name:</label></th>
@@ -17,7 +17,7 @@
                 </tr>
                 <tr>
                     <th><label for="gender">Gender:</label></th>
-                    <td><input type="radio" name="age" id="male">Male <input type="radio" name="age" id="female">Female</td>
+                    <td><input type="radio" name="gender" value="male">Male <input type="radio" name="gender" value="female">Female</td>
                 </tr>
                 <tr>
                     <th><label for="email">Email:</label></th>
@@ -32,7 +32,7 @@
                     <td><input type="number" name="pax" min="1" placeholder="Enter Number of People..."></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="submit" id="Submit" value="Proceed"></td>
+                    <td colspan="2"><input type="submit" name="Submit" value="Proceed"></td>
                 </tr>
         </table>
     </form>
