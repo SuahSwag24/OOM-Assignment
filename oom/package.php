@@ -1,3 +1,16 @@
+<?php
+
+    include "Class.php";
+    $url = "seat.php";
+
+    if(isset($_POST['Submit']))
+    {
+        $package = new Package($_POST['package']);
+        $package->DisplayPackageInfo();
+    }
+
+?>
+
 <html>
     <head>
         <title> Hotpot Booking System </title>
@@ -6,7 +19,7 @@
         <h3>Package Info</h3>
     </head>
 
-    <form action="seat.php" method="post">
+    <form action="package.php" method="post">
         <table>
             <tr>
                 <th colspan="6"><label for="menu">Hotpot Cuisine Menu:</label></th>
@@ -25,7 +38,7 @@
                 <th>Package Image</th>
             </tr>
             <tr>
-                <td><input type="radio" name="package" id="1"> Package 1 </td>
+                <td><input type="radio" name="package" value="1"> Package 1 </td>
                 <td> The Cozy Couple </td>
                 <td style="text-align: left;">
                     <ul>
@@ -44,7 +57,7 @@
                 <td> [Image] </td>
             </tr>
             <tr>
-                <td><input type="radio" name="package" id="2">  Package 2 </td>
+                <td><input type="radio" name="package" value="2">  Package 2 </td>
                 <td> The Big Party </td>
                 <td style="text-align: left;">
                     <ul>
@@ -68,7 +81,7 @@
                 <td> [Image] </td>
             </tr>
             <tr>
-                <td><input type="radio" name="package" id="3">  Package 3 </td>
+                <td><input type="radio" name="package" value="3">  Package 3 </td>
                 <td> The Ultimate Feast </td>
                 <td style="text-align: left;">
                     <ul>
@@ -92,7 +105,7 @@
                 <td> [Image] </td>
             </tr>
             <tr>
-                <td colspan="6"><input type="submit" id="Submit" value="Next"></td>
+                <td colspan="6"><input type="submit" name="Submit" value="Next"></td>
             </tr>
         </table>
     </form>

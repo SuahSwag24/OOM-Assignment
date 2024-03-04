@@ -3,6 +3,7 @@
     class Customer
     {
         private $customerName, $customerGender, $customerAge, $paxNumber, $customerPhoneNum, $customerEmail;
+        private $selectedPackage;
 
         public function __construct($cName, $cGender, $cAge, $pxNo, $cPhone, $cEmail)
         {
@@ -23,24 +24,53 @@
                     "<br>Customer Phone Number: " . $this->customerPhoneNum . 
                     "<br>Customer Email: " . $this->customerEmail . "</p>" ;
         }
+
+        public function SetPackage(Package $package)
+        {
+            $this->selectedPackage = $package;
+        }
     }
-
-?>
-
-<?php
 
     class Package
     {
         private $packageNo, $packageName, $packageItem, $packageRecPax, $packagePrice, $packageImage;
 
-        public function __construct($pNo, $pName, $pItem, $pPax, $pPrice, $pImage)
+        public function __construct($pNo)
         {
             $this->packageNo = $pNo;
-            $this->packageName = $pName;
-            $this->packageItem = $pItem;
-            $this->packageRecPax = $pPax;
-            $this->packagePrice = $pPrice;
-            $this->packageImage = $pImage;
+
+            if($this->packageNo == "1")
+            {
+                $this->packageName = "The Cozy Couple";
+                $this->packageItem = "";
+                $this->packageRecPax = "2";
+                $this->packagePrice = "90.00";
+                $this->packageImage = "";
+            }
+            else if($this->packageNo == "2")
+            {
+                $this->packageName = "The Big Party";
+                $this->packageItem = "";
+                $this->packageRecPax = "5 - 6";
+                $this->packagePrice = "220.00";
+                $this->packageImage = "";
+            }
+            else
+            {
+                $this->packageName = "The Ultimate Feast";
+                $this->packageItem = "";
+                $this->packageRecPax = "7 - 8";
+                $this->packagePrice = "350.00";
+                $this->packageImage = "";
+            }
+            
+            /*
+                $this->packageName = $pName;
+                $this->packageItem = $pItem;
+                $this->packageRecPax = $pPax;
+                $this->packagePrice = $pPrice;
+                $this->packageImage = $pImage;
+            */
         }
 
         public function DisplayPackageInfo()
@@ -53,11 +83,6 @@
                     "<br>Package Image: " . $this->packageImage . "</p>";
         }
     }
-
-
-?>
-
-<?php
 
     class Table
     {
