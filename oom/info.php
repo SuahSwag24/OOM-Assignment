@@ -1,7 +1,7 @@
 <?php
 
     include "Class.php";
-    $url = "package.php";
+    $url = "booking.php";
 
     if(isset($_POST['Submit']))
     {
