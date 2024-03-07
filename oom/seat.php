@@ -1,3 +1,13 @@
+<?php
+$page=isset($_GET["action"])?$_GET["action"]:"";
+
+if($page=="Back"){
+    header("location:package.php");
+}else if($page=="Next"){
+    header("location:payment.php");
+}
+?>
+
 <html>
     <head>
         <title> Hotpot Booking System </title>
@@ -11,9 +21,13 @@
         <p style="text-align: center;">wtf do i do</p>
 
     </div>
+    
     <div class="cont2">
-        <form action="payment.php">
-            <input type="submit" id="Submit" value="Next">
+        <form action="seat.php" method="get">
+            <form action="validate.php" method="post">
+                <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>    
+                <input type="submit" name="action" id="Next" value="Next" onclick="send()">
+            </form>
         </form>
     </div>
 </html>
