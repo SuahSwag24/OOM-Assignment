@@ -19,7 +19,7 @@ if($page=="Back"){
 
     
     <div class="cont2">
-        <form action="seat.php" method="get">
+        <form action="payment.php" method="get">
             <form action="validate.php" method="post">
                 <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>    
                 <input type="submit" name="action" id="Next" value="Next" onclick="send()">
