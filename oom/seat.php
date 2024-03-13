@@ -1,11 +1,19 @@
 <?php
-$page=isset($_GET["action"])?$_GET["action"]:"";
 
-if($page=="Back"){
-    header("location:package.php");
-}else if($page=="Next"){
-    header("location:payment.php");
-}
+    include "Class.php";
+    session_start();
+
+    $page=isset($_GET["action"])?$_GET["action"]:"";
+
+    if($page=="Back"){
+        header("location:package.php");
+    }else if($page=="Next"){
+        header("location:payment.php");
+    }
+
+    $_SESSION['customer']->DisplayCustomerInfo();
+    $_SESSION['customer']->GetPackage()->DisplayPackageInfo();
+
 ?>
 
 <html>

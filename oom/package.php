@@ -1,19 +1,21 @@
 <?php
-$page=isset($_GET["action"])?$_GET["action"]:"";
-
-if($page=="Back"){
-    header("location:booking.php");
-}else if($page=="Next"){
-    header("location:seat.php");
-}
 
     include "Class.php";
-    $url = "seat.php";
+    session_start();
 
-    if(isset($_POST['Submit']))
+    $page=isset($_GET["action"])?$_GET["action"]:"";
+
+    if($page=="Back")
+    {
+        header("location:booking.php");
+    }
+    else if($page=="Next")
     {
         $package = new Package($_POST['package']);
-        $package->DisplayPackageInfo();
+
+        $_SESSION['customer']->SetPackage($package);
+
+        header("location:seat.php");
     }
 
 

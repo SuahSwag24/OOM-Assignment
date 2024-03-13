@@ -29,6 +29,12 @@
         {
             $this->selectedPackage = $package;
         }
+
+        public function GetPackage()
+        {
+            return $this->selectedPackage;
+        }
+
     }
 
     class Package

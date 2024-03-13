@@ -1,11 +1,17 @@
 <?php
 
+    session_start();
     include "Class.php";
+    
     $url = "booking.php";
 
-    if(isset($_POST['Submit']))
+    if(isset($_POST['submit']))
     {
         $customer = new Customer($_POST['name'] , $_POST['gender'] , $_POST['age'] , $_POST['pax'] , $_POST['phone'] , $_POST['email']);
+        $_SESSION['customer'] = $customer;
+
+        $_SESSION['id'] = "123";
+
         header('Location: ' . $url);
     }
 
@@ -18,7 +24,7 @@
         <h1>Hotpot Booking System</h1>
     </head>
     <div class="form">
-    <form action="booking.php" method="post">
+    <form action="info.php" method="post">
         <table>
                 <tr>
                     <th><label for="name">Name:</label></th>
@@ -45,7 +51,7 @@
                     <td><input type="number" name="pax" min="1" placeholder="Enter Number of People..." required></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="submit" id="Submit" value="Proceed"></td>
+                    <td colspan="2"><input type="submit" id="Submit" value="Proceed" name="submit"></td>
                 </tr>
         </table>
     </form>

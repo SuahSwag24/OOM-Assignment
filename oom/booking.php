@@ -1,9 +1,15 @@
 <?php
-$page=isset($_GET["action"])?$_GET["action"]:"";
 
-if($page=="Back"){
-    header("location:info.php");
-}
+    session_start();
+    include "Class.php";
+
+    $page = isset($_GET["action"])?$_GET["action"]:"";
+
+    if($page == "Back")
+    {
+        header("location:info.php");
+    }
+
 ?>
 
 <html>
