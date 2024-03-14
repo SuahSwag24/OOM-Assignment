@@ -31,12 +31,12 @@
                     <td><input type="text" name="name" placeholder="Enter Name..." required></td>
                 </tr>
                 <tr>
-                    <th><label for="age">Age:</label></th>
+                    <th><label for="age">Age:</label></th>   
                     <td><input type="number" name="age" min="1" placeholder="Enter Age..." required></td>
                 </tr>
                 <tr>
                     <th><label for="gender">Gender:</label></th>
-                    <td><input type="radio" name="age" id="male" required>Male <input type="radio" name="age" id="female" required>Female</td>
+                    <td><input type="radio" name="gender" value="male" required>Male <input type="radio" name="gender" value="female" required>Female</td>
                 </tr>
                 <tr>
                     <th><label for="email">Email:</label></th>
