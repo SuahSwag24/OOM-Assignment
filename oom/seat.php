@@ -24,9 +24,39 @@
         <h3> Choose your seat </h3>
     </head>
 
-    <div class="cont1">
+    <div class="cont">
+        <link rel="stylesheet" href="seating.css"> 
+        
+        <div class="left">
+            <h3><u>Filter</u></h3>
+            <h3>Tables</h3>
+        </div>
 
-        <p style="text-align: center;">wtf do i do</p>
+        <div class="right">
+            <div class="right1">
+                <div class="seat4"></div>
+                <div class="seat4"></div>
+                <div class="seat4"></div>
+            </div>
+            <div class="right1">
+                <div class="seat6"></div>
+                <div class="seat6"></div>
+            </div>
+            <div class="right1">
+                <div class="seat4"></div>
+                <div class="seat4"></div>
+                <div class="seat4"></div>
+            </div>
+            <div class="right1">
+                <div class="seat6"></div>
+                <div class="seat6"></div>
+            </div>
+            <div class="right1">
+                <div class="seat4"></div>
+                <div class="seat4"></div>
+                <div class="seat4"></div>
+            </div>
+        </div>
 
     </div>
     
