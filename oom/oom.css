@@ -1,4 +1,3 @@
-  
 h1, h3{
     text-align: center;
 }
@@ -53,6 +52,7 @@ input[type=submit] {
 .cont1{
     width: 100%;
     height: 500px;
+    background-color: transparent;
     border: 2px solid black;
     border-collapse: collapse;
     border-radius: 4px;
@@ -62,5 +62,20 @@ input[type=submit] {
     display: flex;
     justify-content: center;
     align-items: center;
-  
+}
+
+.bookingCont{
+    padding-top: 30px;
+    width: 100%;
+    height: 200px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 50;
+}
+
+.bookingCont a{
+    text-decoration: none;
+    color: black;
 }
