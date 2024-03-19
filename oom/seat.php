@@ -12,7 +12,8 @@
     else if($page=="Next")
     {
         //Code goes here
-        
+
+
 
         //header("location:payment.php");
     }
@@ -35,7 +36,7 @@
         
         <div class="left">
         <h2><u>Filter</u></h2>
-        <form id="filter" action="seat.php" method="get">
+        <form id="filter" action="seat.php" method="post">
             <form action="seat.php">
                 <h3>Tables Selected: </h3>
                 <!-- linkage code required --> 
@@ -44,8 +45,8 @@
                 <!-- linkage code required --> 
 
                 <h3>Time: </h3>
-                <h4> From <input type="time" id="timeReserve" name="timeReserve"> </h4>
-                <h4> To <input type="time" id="timeReserve" name="timeReserve"> </h4>
+                <h4> From <input type="time" id="timeReserve" name="timeStart"> </h4>
+                <h4> To <input type="time" id="timeReserve" name="timeEnd"> </h4>
                 
                 <h3>Date: </h3>
                 <input type="date" id="dateReserve" name="dateReserve">
