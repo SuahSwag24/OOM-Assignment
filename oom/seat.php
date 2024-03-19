@@ -12,9 +12,10 @@
     else if($page=="Next")
     {
         //Code goes here
-        
 
-        header("location:payment.php");
+
+
+        //header("location:payment.php");
     }
 
     $_SESSION['customer']->DisplayCustomerInfo();
@@ -49,8 +50,8 @@
                 <!-- linkage code required --> 
 
                 <h3>Time: </h3>
-                <h4> From <input type="time" id="timeReserve" name="timeReserve"> </h4>
-                <h4> To <input type="time" id="timeReserve" name="timeReserve"> </h4>
+                <h4> From <input type="time" id="timeReserve" name="timeStart"> </h4>
+                <h4> To <input type="time" id="timeReserve" name="timeEnd"> </h4>
                 
                 <h3>Date: </h3>
                 <input type="date" id="dateReserve" name="dateReserve">

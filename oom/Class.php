@@ -4,6 +4,8 @@
     {
         private $customerName, $customerGender, $customerAge, $paxNumber, $customerPhoneNum, $customerEmail;
         private $selectedPackage;
+        private $bookedTable;
+        private $payment;
 
         public function __construct($cName, $cGender, $cAge, $pxNo, $cPhone, $cEmail)
         {
@@ -33,6 +35,36 @@
         public function GetPackage()
         {
             return $this->selectedPackage;
+        }
+
+        public function SetTable(Table $table)
+        {
+            $this->bookedTable = $table;
+        }
+
+        public function GetTable()
+        {
+            return $this->bookedTable;
+        }
+
+        public function SetPayment(Payment $payment)
+        {
+            $this->payment = $payment;
+        }
+
+        public function GetPayment()
+        {
+            return $this->payment;
+        }
+
+        public function GetName()
+        {
+            return $this->customerName;
+        }
+
+        public function GetPax()
+        {
+            return $this->paxNumber;
         }
 
     }
@@ -71,6 +103,7 @@
             }
             
             /*
+                For specific input
                 $this->packageName = $pName;
                 $this->packageItem = $pItem;
                 $this->packageRecPax = $pPax;
@@ -88,28 +121,67 @@
                     "<br>Package Price: " . $this->packagePrice .
                     "<br>Package Image: " . $this->packageImage . "</p>";
         }
+
+        public function GetPackageNum()
+        {
+            return $this->packageNo;
+        }
+
+        public function GetPrice()
+        {
+            return $this->packagePrice;
+        }
     }
 
     class Table
     {
-        private $tableNo, $tableCapacity, $bookingStatus;
+        private $tableNo, $tableCapacity, $bookingStatus, $bookingStartTime, $bookingEndTime, $bookingDate;
 
-        public function __construct($tNo, $tCap)
+        public function __construct($tNo, $bStart, $bEnd, $bDate)
         {
             $this->tableNo = $tNo;
-            $this->tableCapacity = $tCap;
+            $this->bookingStatus = "pending";
+            $this->bookingStartTime = $bStart;
+            $this->bookingEndTime = $bEnd;
+            $this->bookingDate = $bDate;
         }
 
         public function DisplayTableInfo()
         {
             echo    "<p>Table Number: " . $this->tableNo .
                     "<br>Table Capacity: " . $this->tableCapacity .
-                    "<br>Current Status: " . $this->bookingStatus;
+                    "<br>Current Status: " . $this->bookingStatus . 
+                    "<br>Booking Start Time: " . $this->bookingStartTime . 
+                    "<br>Booking End Time: " . $this->bookingEndTime . 
+                    "<br>Booking Date: " . $this->bookingDate;
         }
 
         private function UpdateBookingStatus($status)
         {
             $this->bookingStatus = $status;
+        }
+
+        public function GetSeat()
+        {
+            return $this->tableNo;
+        }
+
+        public function GetStatus()
+        {
+            return $this->bookingStatus;
+        }
+    }
+
+    class Payment
+    {
+        private $paymentId, $paymentAmount, $paymentType, $paymentMethod;
+
+        public function __construct($amt, $type, $method)
+        {
+            $this->paymentId;
+            $this->paymentAmount = $amt;
+            $this->paymentType = $type;
+            $this->paymentMethod = $method;
         }
     }
 

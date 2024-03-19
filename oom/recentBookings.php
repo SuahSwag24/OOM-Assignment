@@ -1,9 +1,15 @@
 <?php
-$page=isset($_GET["action"])?$_GET["action"]:"";
 
-if($page=="Back"){
-    header("location:booking.php");
-}
+    session_start();
+    include "Class.php";
+    session_destroy();
+
+    $page=isset($_GET["action"])?$_GET["action"]:"";
+
+    if($page=="Back")
+    {
+        header("location:booking.php");
+    }
 ?>
 
 <html>
@@ -15,14 +21,32 @@ if($page=="Back"){
 
     <table>
         <tr>
-            <th> Name </th>
-            <th> Pax </th>
-            <th> Package </th>
+            <th> Name</th>
+            <th> Pax</th>
+            <th> Package</th>
             <th> Seat </th>
-            <th> Price </th>
-            <th> Status </th>
-            <th>  </th>
+            <th> Price</th>
+            <th> Status</th>
         </tr>
+
+        <?php
+        
+                echo 
+                "
+                <tr>
+                    <td>" . $customer->GetName() . " </td>
+                    <td>" . $customer->GetPax() . "</td>
+                    <td>" . $customer->GetPackage()->GetPackageNum() . "</td>
+                    <td>" . $customer->GetTable()->GetSeat() . "</td>
+                    <td>" . $customer->GetPackage()->GetPrice() . "</td>
+                    <td>" . $customer->GetTable()->GetStatus() . "</td>
+                </tr>
+                ";
+
+           
+        
+        ?>
+
     </table>
 
     <div class="cont2">
