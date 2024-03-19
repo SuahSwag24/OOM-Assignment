@@ -47,10 +47,6 @@
                     <td><input type="text" name="phone" placeholder="Enter Phone Number..." required></td>
                 </tr>
                 <tr>
-                    <th><label for="pax">Pax:</label></th>
-                    <td><input type="number" name="pax" min="1" placeholder="Enter Number of People..." required></td>
-                </tr>
-                <tr>
                     <td colspan="2"><input type="submit" id="Submit" value="Proceed" name="submit"></td>
                 </tr>
         </table>
