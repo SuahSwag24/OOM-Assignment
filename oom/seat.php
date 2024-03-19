@@ -29,7 +29,8 @@
         
         <div class="left">
         <h2><u>Filter</u></h2>
-        <form action="action_page.php">
+        <form id="filter" action="seat.php" method="get">
+            <form action="action_page.php">
                 <h3>Tables Selected: </h3>
                 <!-- linkage code required --> 
 
@@ -43,8 +44,12 @@
                 <h3>Date: </h3>
                 <input type="date" id="dateReserve" name="dateReserve">
                 <br><br>
-                <input type="submit" name="action" value="Submit" onclick="submit()" >
+                <input type="submit" name="action" id="Next" value="Next" onclick="send()" >
+                <br>
                 <input type="reset" name="action" value="Reset" onclick="reset()" >
+                <br><br>
+                <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>    
+            </form>
         </form>
         </div>
 
@@ -165,12 +170,7 @@
     -->
     
     <div class="cont2">
-        <form action="seat.php" method="get">
-            <form action="validate.php" method="post">
-                <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>    
-                <input type="submit" name="action" id="Next" value="Next" onclick="send()">
-            </form>
-        </form>
+
     </div>
     <script src="seat.js"></script>
 </html>
