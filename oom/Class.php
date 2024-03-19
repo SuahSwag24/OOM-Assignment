@@ -71,6 +71,7 @@
             }
             
             /*
+                For specific input
                 $this->packageName = $pName;
                 $this->packageItem = $pItem;
                 $this->packageRecPax = $pPax;
@@ -92,12 +93,15 @@
 
     class Table
     {
-        private $tableNo, $tableCapacity, $bookingStatus;
+        private $tableNo, $tableCapacity, $bookingStatus, $bookingStartTime, $bookingEndTime, $bookingDate;
 
-        public function __construct($tNo, $tCap)
+        public function __construct($tNo, $bStart, $bEnd, $bDate)
         {
             $this->tableNo = $tNo;
-            $this->tableCapacity = $tCap;
+            $this->bookingStatus = "occupied";
+            $this->bookingStartTime = $bStart;
+            $this->bookingEndTime = $bEnd;
+            $this->bookingDate = $bDate;
         }
 
         public function DisplayTableInfo()

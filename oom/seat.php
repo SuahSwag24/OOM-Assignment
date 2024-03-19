@@ -5,10 +5,16 @@
 
     $page=isset($_GET["action"])?$_GET["action"]:"";
 
-    if($page=="Back"){
+    if($page=="Back")
+    {
         header("location:package.php");
-    }else if($page=="Next"){
-        header("location:payment.php");
+    }
+    else if($page=="Next")
+    {
+        //Code goes here
+        
+
+        //header("location:payment.php");
     }
 
     $_SESSION['customer']->DisplayCustomerInfo();
@@ -30,7 +36,7 @@
         <div class="left">
         <h2><u>Filter</u></h2>
         <form id="filter" action="seat.php" method="get">
-            <form action="action_page.php">
+            <form action="seat.php">
                 <h3>Tables Selected: </h3>
                 <!-- linkage code required --> 
 
@@ -50,7 +56,7 @@
                 <br><br>
                 <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>    
             </form>
-        </form>
+        
         </div>
 
 
@@ -128,6 +134,8 @@
             </div>
         </div>
     </div>
+
+</form>
 
     <!-- Previous look of HTML utilizing container. Latest one is made with checkbox above. 
         <div class="right">
