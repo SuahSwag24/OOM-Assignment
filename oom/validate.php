@@ -82,10 +82,6 @@ if($page=="Back"){
                     <td></td>
                 </tr>
                 <tr>
-                    <th>Items: </th>
-                    <td></td>
-                </tr>
-                <tr>
                     <th>Price: </th>
                     <td></td>
                 </tr>
