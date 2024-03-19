@@ -5,9 +5,15 @@
 
     $page=isset($_GET["action"])?$_GET["action"]:"";
 
-    if($page=="Back"){
+    if($page=="Back")
+    {
         header("location:package.php");
-    }else if($page=="Next"){
+    }
+    else if($page=="Next")
+    {
+        //Code goes here
+        
+
         header("location:payment.php");
     }
 
@@ -28,9 +34,14 @@
         <link rel="stylesheet" href="seating.css"> 
         
         <div class="left">
-        <h2><u>Filter</u></h2>
-        <form id="filter" action="seat.php" method="get">
+        <h2><u>Selection</u></h2>
+        <form id="select" action="seat.php" method="get">
             <form action="action_page.php">
+                <h3>
+                    <label for="pax">Pax: </label>
+                    <input type="number" name="pax" min="1" style="width:60%; border:1px solid black; text-align:center;" 
+                    placeholder="Enter Number of People..." required>
+                </h3>
                 <h3>Tables Selected: </h3>
                 <!-- linkage code required --> 
 
