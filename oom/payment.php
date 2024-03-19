@@ -15,9 +15,19 @@ if($page=="Back"){
         <h1>Hotpot Booking System</h1>
         <h3> Choose your payment method </h3>
     </head>
-
-
     
+    <div class="pcont">
+        <div class="box" id="1">
+            <p>Method 1</p>
+        </div>
+
+        <div class="space"></div>
+
+        <div class="box" id="2">
+            <p>Method 2</p>
+        </div>
+    </div>
+
     <div class="cont2">
         <form action="payment.php" method="get">
             <form action="validate.php" method="post">
