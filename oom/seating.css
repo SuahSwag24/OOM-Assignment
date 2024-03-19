@@ -8,7 +8,7 @@
 
 .left{
     width: 20%;
-    height: 500px;
+    height: 600px;
     float: left;
     border: 1px solid black;
     text-align: center;
@@ -17,7 +17,7 @@
 .right{
     margin-left: 20%;
     width: 80%;
-    height: 500px;
+    height: 600px;
     border: 1px solid black;  
     align-items: center;  
 }
@@ -36,32 +36,158 @@
     align-items: center;
 }
 
-.seat4{
+.checkbox-alias{
     width: 150px;
     height: 150px;
-    background-color: red;
-    border: 1px solid black;
+    background-color:lightcoral;
     border-radius: 5px;
     float:left;
+    margin-left: 45px;
+    margin-top: 12.5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    text-align: right;
+    font-size: 25px;
+}
+
+.seat4 input[type=checkbox]{
+    display: none;
+  }
+  
+.seat4 input[type=checkbox]:checked + .checkbox-alias{
+    background-color: green;
+}
+
+.seat6 input[type=checkbox]{
+    display: none;
+  }
+  
+.seat6 input[type=checkbox]:checked + .checkbox-alias{
+    background-color: green;
+}
+
+.showcase{
+    text-align: left;
+}
+
+.IconSeat4{
+    width: 10px;
+    height: 10px;
+    margin-left: 50px;
+    margin-right: 5px;
+    margin-top: 2px;
+    background-color: rgb(110, 178, 32);
+    border: 1px solid black;
+    border-radius: 5px;
+    float: inline-start;
+}
+
+.IconSeat6{
+    width: 10px;
+    height: 10px;
+    margin-left: 50px;
+    margin-right: 5px;
+    margin-top: 2px;
+    background-color:dodgerblue;
+    border: 1px solid black;
+    border-radius: 5px;
+    float: inline-start;
+}
+
+/* Previous look of CSS utilizing container. Latest one is made with checkbox above.
+.showcase{
+    text-align: left;
+}
+
+.IconSeat4{
+    width: 10px;
+    height: 10px;
+    margin-left: 50px;
+    margin-right: 5px;
+    margin-top: 2px;
+    background-color: lightcoral;
+    border: 1px solid black;
+    border-radius: 5px;
+    float: inline-start;
+}
+
+.IconSeat6{
+    width: 10px;
+    height: 10px;
+    margin-left: 50px;
+    margin-right: 5px;
+    margin-top: 2px;
+    background-color:dodgerblue;
+    border: 1px solid black;
+    border-radius: 5px;
+    float: inline-start;
+}
+
+.seat4{
+    width: 150px;
+    height: 231.25px;
+    border-radius: 5px;
+    background-color: lightcoral;
+    float: left;
     margin-left: 45px;
     margin-top: 12.5px;
 }
 
 .seat4:hover {
-    background-color: #95999e;
+    background-color: orange;
 }
 
 .seat6{
     width: 150px;
     height: 231.25px;
-    background-color: yellow;
-    border: 1px solid black;
     border-radius: 5px;
+    background-color: dodgerblue;
     float: left;
     margin-left: 45px;
     margin-top: 12.5px;
 }
 
 .seat6:hover {
-    background-color: #95999e;
+    background-color: cyan;
 }
+
+.seat4.selected{
+    background-color: lightgreen;
+}
+
+.seat6.selected{
+    background-color: lightgreen;
+}
+
+.seat4.selected:hover{
+    background-color: darkseagreen;
+}
+
+.seat6.selected:hover{
+    background-color: darkseagreen;
+}
+
+.seat4.occupied{
+    background-color: darkgrey;
+}
+
+.seat6.occupied{
+    background-color: darkgray;
+}
+
+.button
+{
+    background-color: whitesmoke;
+    border: none;
+    width: 50px;
+    height: 50px;
+} 
+
+.button:active{
+    background-color: crimson;
+}
+
+.button.selected{
+    background-color: green;
+}
+*/
