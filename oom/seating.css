@@ -14,6 +14,13 @@
     text-align: center;
 }
 
+[id=filter]{
+    padding-top: 20px;
+    padding-left: 0%;
+    padding-right: 0%;
+    margin: 0;
+}
+
 .right{
     margin-left: 20%;
     width: 80%;
@@ -48,6 +55,10 @@
     padding-bottom: 5px;
     text-align: right;
     font-size: 25px;
+}
+input[type=reset]{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .seat4 input[type=checkbox]{
