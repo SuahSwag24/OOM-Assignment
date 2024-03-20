@@ -1,9 +1,23 @@
 <?php
-$page=isset($_GET["action"])?$_GET["action"]:"";
 
-if($page=="Back"){
-    header("location:payment.php");
-}
+    include "Class.php";
+    session_start();
+
+    $customer = $_SESSION['customer'];
+
+    $page=isset($_POST["action"])?$_POST["action"]:"";
+
+    if($page=="Back")
+    {
+        header("location:payment.php");
+    }
+    else if($page == "Confirm")
+    {
+        $_SESSION['confirmedBooking'][$_SESSION['counter']] = $customer;
+        $_SESSION['counter'] ++;
+
+        header("Location:recentBookings.php");
+    }
 ?>
 
 <html>
@@ -59,15 +73,15 @@ if($page=="Back"){
                 </tr>
                 <tr>
                     <th>Table: </th>
-                    <td><?php echo $table->GetSeat(); ?></td>
+                    <td><?php echo $customer->GetTable()->GetSeat(); ?></td>
                 </tr>
                 <tr>
                     <th>Date: </th>
-                    <td><?php echo $table->GetDate(); ?></td>
+                    <td><?php echo $customer->GetTable()->GetDate(); ?></td>
                 </tr>
                 <tr>
                     <th>Time: </th>
-                    <td><?php echo $table->GetStartTime(); ?> - <?php echo $customer->GetEndTime(); ?></td>
+                    <td><?php echo $customer->GetTable()->GetStartTime(); ?> - <?php echo $customer->GetTable()->GetEndTime(); ?></td>
                 </tr>
             </table>
 
@@ -79,22 +93,22 @@ if($page=="Back"){
                 </tr>
                 <tr>
                     <th>Package Name: </th>
-                    <td><?php echo $package->GetPackageName(); ?></td>
+                    <td><?php echo $customer->GetPackage()->GetPackageName(); ?></td>
                 </tr>
                 <tr>
                     <th>Price: </th>
-                    <td><<?php echo $package->GetPrice(); ?>/td>
+                    <td>RM <?php echo $customer->GetPackage()->GetPrice(); ?></td>
                 </tr>
                 <tr>
                     <th>Payment Method: </th>
-                    <td><?php echo $payment->GetPmethod(); ?></td>
+                    <td><?php echo $customer->GetPayment()->GetPMethod(); ?></td>
                 </tr>
             </table>
         </form>
     </div>
 
     <div class="cont2">
-        <form action="validate.php" method="get">
+        <form action="validate.php" method="post">
             <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>
             <input type="submit" name="action" id="Confirm" value="Confirm" onclick="send()">
         </form>

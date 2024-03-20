@@ -1,7 +1,7 @@
 <?php
 
-    session_start();
     include "Class.php";
+    session_start();
 
     $page=isset($_POST["action"])?$_POST["action"]:"";
 
@@ -11,15 +11,14 @@
     }
     else if($page=="Next")
     {
-        //$payment = new Payment($_SESSION['customer']->GetPackage()->GetPrice() , $_POST['paymenttype'] , $_POST['paymentMethod']);
+        $payment = new Payment($_SESSION['customer']->GetPackage()->GetPrice() , $_POST['paymenttype'] , $_POST['paymentMethod']);
 
-        //$_SESSION['customer']->SetPayment($payment);
-
-        echo $_POST['paymenttype'];
-        echo $_POST['paymentMethod'];
-
+        $_SESSION['customer']->SetPayment($payment);
+        
         header("location:validate.php");
     }
+        
+
 ?>
 
 <html>
@@ -60,12 +59,12 @@
         <form action="validate.php">
             <label for="paymentMtd">Payment:</label>
             <select name="paymentMethod" id="paymentMethod">
-                <option value="visa">Visa Card</option>
-                <option value="master">Master Card</option>
-                <option value="paypal">Paypal</option>
-                <option value="touchNGo">Touch N' Go</option>
-                <option value="cash">Cash</option>
-                <option value="cash">Other</option>
+                <option value="Visa">Visa Card</option>
+                <option value="Master Card">Master Card</option>
+                <option value="Paypal">Paypal</option>
+                <option value="TouchNGo">Touch N' Go</option>
+                <option value="Cash">Cash</option>
+                <option value="Other">Other</option>
             </select>
         </form>
     </div>
@@ -107,12 +106,9 @@
 -->
 
         <div class="cont2">
-            
-                <form action="payment.php" method="post">
-                    <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>    
-                    <input type="submit" name="action" id="Next" value="Next" onclick="send()">
-                </form>
-            </form>
+            <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>    
+            <input type="submit" name="action" id="Next" value="Next" onclick="send()">
+        </form>
         </div>
     </body>
 

@@ -1,8 +1,19 @@
 <?php
 
-    session_start();
     include "Class.php";
-    session_destroy();
+    session_start();
+    
+    function customErrorHandler($errno, $errstr, $errfile, $errline)
+    {
+        if ($errno === E_WARNING && strpos($errstr, 'Invalid argument supplied for foreach()') !== false) 
+        {
+            echo "Empty data.\n";
+            // You can also log this information to a file or a database
+        }
+    }
+
+    set_error_handler("customErrorHandler");
+
 
     $page=isset($_GET["action"])?$_GET["action"]:"";
 
@@ -31,6 +42,11 @@
 
         <?php
         
+            foreach($_SESSION['confirmedBooking'] as $customer)
+            {
+
+                
+
                 echo 
                 "
                 <tr>
@@ -42,6 +58,7 @@
                     <td>" . $customer->GetTable()->GetStatus() . "</td>
                 </tr>
                 ";
+            }
 
            
         

@@ -67,6 +67,11 @@
             return $this->paxNumber;
         }
 
+        public function SetPax($pax)
+        {
+            $this->paxNumber = $pax;
+        }
+
         public function GetAge()
         {
             return $this->customerAge;
@@ -169,6 +174,15 @@
             $this->bookingStartTime = $bStart;
             $this->bookingEndTime = $bEnd;
             $this->bookingDate = $bDate;
+
+            if($this->tableNo == "4" || $this->tableNo == "5" || $this->tableNo == "9" || $this->tableNo == "10")
+            {
+                $this->tableCapacity = "6";
+            }
+            else
+            {
+                $this->tableCapacity = "4";
+            }
         }
 
         public function DisplayTableInfo()
@@ -223,7 +237,7 @@
             $this->paymentMethod = $method;
         }
 
-        public function GetPmethod()
+        public function GetPMethod()
         {
             return $this->paymentMethod;
         }

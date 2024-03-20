@@ -5,9 +5,13 @@
     
     $url = "booking.php";
 
-    if(isset($_POST['submit']))
+    if($_POST['submit'] == "kys")
     {
-        $customer = new Customer($_POST['name'] , $_POST['gender'] , $_POST['age'] , "undefined" , $_POST['phone'] , $_POST['email']);
+        header("Location:kys.php");
+    }
+    else if(isset($_POST['submit']))
+    {
+        $customer = new Customer($_POST['name'] , $_POST['gender'] , $_POST['age'] , "" , $_POST['phone'] , $_POST['email']);
         $_SESSION['customer'] = $customer;
 
         $_SESSION['id'] = "123";
@@ -50,6 +54,7 @@
                     <td colspan="2"><input type="submit" id="Submit" value="Proceed" name="submit"></td>
                 </tr>
         </table>
+        <input type="submit" name="submit" value="kys">
     </form>
     </div>
 </html>
