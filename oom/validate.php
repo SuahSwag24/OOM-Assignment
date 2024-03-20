@@ -45,7 +45,7 @@
                 </tr>
                 <tr>
                     <th>Age: </th>
-                    <<td><?php echo $customer->GetAge(); ?></td>
+                    <td><?php echo $customer->GetAge(); ?></td>
                 </tr>
                 <tr>
                     <th>Gender: </th>
