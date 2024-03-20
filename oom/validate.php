@@ -27,23 +27,23 @@ if($page=="Back"){
                 </tr>
                 <tr>
                     <th>Name: </th>
-                    <td></td>
+                    <td><?php echo $customer->GetName(); ?></td>
                 </tr>
                 <tr>
                     <th>Age: </th>
-                    <td></td>
+                    <<td><?php echo $customer->GetAge(); ?></td>
                 </tr>
                 <tr>
                     <th>Gender: </th>
-                    <td></td>
+                    <td><?php echo $customer->GetGender(); ?></td>
                 </tr>
                 <tr>
                     <th>Email: </th>
-                    <td></td>
+                    <td><?php echo $customer->GetEmail(); ?></td>
                 </tr>
                 <tr>
                     <th>Phone Number: </th>
-                    <td></td>
+                    <td><?php echo $customer->GetPhoneNum(); ?></td>
                 </tr>
             </table>
 
@@ -55,19 +55,19 @@ if($page=="Back"){
                 </tr>    
                 <tr>
                     <th>Pax: </th>
-                    <td></td>
+                    <td><?php echo $customer->GetPax(); ?></td>
                 </tr>
                 <tr>
                     <th>Table: </th>
-                    <td></td>
+                    <td><?php echo $table->GetSeat(); ?></td>
                 </tr>
                 <tr>
                     <th>Date: </th>
-                    <td></td>
+                    <td><?php echo $table->GetDate(); ?></td>
                 </tr>
                 <tr>
                     <th>Time: </th>
-                    <td></td>
+                    <td><?php echo $table->GetStartTime(); ?> - <?php echo $customer->GetEndTime(); ?></td>
                 </tr>
             </table>
 
@@ -79,15 +79,15 @@ if($page=="Back"){
                 </tr>
                 <tr>
                     <th>Package Name: </th>
-                    <td></td>
+                    <td><?php echo $package->GetPackageName(); ?></td>
                 </tr>
                 <tr>
                     <th>Price: </th>
-                    <td></td>
+                    <td><<?php echo $package->GetPrice(); ?>/td>
                 </tr>
                 <tr>
                     <th>Payment Method: </th>
-                    <td></td>
+                    <td><?php echo $payment->GetPmethod(); ?></td>
                 </tr>
             </table>
         </form>

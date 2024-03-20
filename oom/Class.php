@@ -67,6 +67,26 @@
             return $this->paxNumber;
         }
 
+        public function GetAge()
+        {
+            return $this->customerAge;
+        }
+
+        public function GetGender()
+        {
+            return $this->customerGender;
+        }
+
+        public function GetEmail()
+        {
+            return $this->customerEmail;
+        }
+
+        public function GetPhoneNum()
+        {
+            return $this->customerPhoneNum;
+        }
+
     }
 
     class Package
@@ -131,6 +151,11 @@
         {
             return $this->packagePrice;
         }
+
+        public function GetPackageName()
+        {
+            return $this->packageName;
+        }
     }
 
     class Table
@@ -170,6 +195,21 @@
         {
             return $this->bookingStatus;
         }
+
+        public function GetDate()
+        {
+            return $this->bookingDate;
+        }
+
+        public function GetStartTime()
+        {
+            return $this->bookingStartTime;
+        }
+
+        public function GetEndTime()
+        {
+            return $this->bookingEndTime;
+        }
     }
 
     class Payment
@@ -181,6 +221,11 @@
             $this->paymentAmount = $amt;
             $this->paymentType = $type;
             $this->paymentMethod = $method;
+        }
+
+        public function GetPmethod()
+        {
+            return $this->paymentMethod;
         }
     }
 
