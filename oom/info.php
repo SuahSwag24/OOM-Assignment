@@ -54,7 +54,7 @@
                     <td colspan="2"><input type="submit" id="Submit" value="Proceed" name="submit"></td>
                 </tr>
         </table>
-        <input type="submit" name="submit" value="kys">
+        <input type="submit" name="submit" value="kys" formnovalidate>
     </form>
     </div>
 </html>
