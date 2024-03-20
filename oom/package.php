@@ -12,7 +12,6 @@
     else if($page=="Next")
     {
         $package = new Package($_GET['package']);
-
         $_SESSION['customer']->SetPackage($package);
 
         header("location:seat.php");

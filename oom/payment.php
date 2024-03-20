@@ -3,12 +3,21 @@
     session_start();
     include "Class.php";
 
-    $page=isset($_GET["action"])?$_GET["action"]:"";
+    $page=isset($_POST["action"])?$_POST["action"]:"";
 
-    if($page=="Back"){
-        header("location:seat.php");
-    }else if($page=="Next")
+    if($page=="Back")
     {
+        header("location:seat.php");
+    }
+    else if($page=="Next")
+    {
+        //$payment = new Payment($_SESSION['customer']->GetPackage()->GetPrice() , $_POST['paymenttype'] , $_POST['paymentMethod']);
+
+        //$_SESSION['customer']->SetPayment($payment);
+
+        echo $_POST['paymenttype'];
+        echo $_POST['paymentMethod'];
+
         header("location:validate.php");
     }
 ?>
@@ -25,12 +34,13 @@
 
         </style>
     </head>
-
+    
+    <form action="payment.php" method="post">
     <div class="pcont">
         <h3> 1. Choose your payment type </h3>
         <div class="wrapper">
-            <input type="radio" name="select" id="option-1">
-            <input type="radio" name="select" id="option-2">
+            <input type="radio" name="paymenttype" id="option-1" value="online">
+            <input type="radio" name="paymenttype" id="option-2" value="paylater">
             <label for="option-1" class="option option-1">
                 <div class="dot"></div>
                 <span>Pay in full online</span>
@@ -97,8 +107,8 @@
 -->
 
         <div class="cont2">
-            <form action="payment.php" method="get">
-                <form action="validate.php" method="post">
+            
+                <form action="payment.php" method="post">
                     <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>    
                     <input type="submit" name="action" id="Next" value="Next" onclick="send()">
                 </form>

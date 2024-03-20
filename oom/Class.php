@@ -174,11 +174,10 @@
 
     class Payment
     {
-        private $paymentId, $paymentAmount, $paymentType, $paymentMethod;
+        private $paymentAmount, $paymentType, $paymentMethod;
 
         public function __construct($amt, $type, $method)
         {
-            $this->paymentId;
             $this->paymentAmount = $amt;
             $this->paymentType = $type;
             $this->paymentMethod = $method;

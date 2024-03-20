@@ -7,7 +7,7 @@
 
     if(isset($_POST['submit']))
     {
-        $customer = new Customer($_POST['name'] , $_POST['gender'] , $_POST['age'] , $_POST['pax'] , $_POST['phone'] , $_POST['email']);
+        $customer = new Customer($_POST['name'] , $_POST['gender'] , $_POST['age'] , "undefined" , $_POST['phone'] , $_POST['email']);
         $_SESSION['customer'] = $customer;
 
         $_SESSION['id'] = "123";
