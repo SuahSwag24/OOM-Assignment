@@ -11,10 +11,10 @@
     }
     else if($page=="Next")
     {
-        $payment = new Payment($_SESSION['customer']->GetPackage()->GetPrice() , $_POST['paymenttype'] , $_POST['paymentMethod']);
+        $payment = new Payment($_SESSION['customerCounter']->GetPackage()->GetPrice() , $_POST['paymenttype'] , $_POST['paymentMethod']);
 
-        $_SESSION['customer']->SetPayment($payment);
-        
+        $_SESSION['customerCounter']->SetPayment($payment);
+
         header("location:validate.php");
     }
         

@@ -6,7 +6,6 @@
         private $selectedPackage;
         private $bookedTable;
         private $payment;
-
         public function __construct($cName, $cGender, $cAge, $pxNo, $cPhone, $cEmail)
         {
             $this->customerName = $cName;

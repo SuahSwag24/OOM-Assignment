@@ -12,10 +12,7 @@
     else if(isset($_POST['submit']))
     {
         $customer = new Customer($_POST['name'] , $_POST['gender'] , $_POST['age'] , "" , $_POST['phone'] , $_POST['email']);
-        $_SESSION['customer'] = $customer;
-
-        $_SESSION['id'] = "123";
-
+        $_SESSION['customerCounter'] = $customer;
         header('Location: ' . $url);
     }
 

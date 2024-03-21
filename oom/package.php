@@ -3,7 +3,7 @@
     include "Class.php";
     session_start();
 
-    $page=isset($_GET["action"])?$_GET["action"]:"";
+    $page=isset($_POST["action"])?$_POST["action"]:"";
 
     if($page=="Back")
     {
@@ -11,8 +11,9 @@
     }
     else if($page=="Next")
     {
-        $package = new Package($_GET['package']);
-        $_SESSION['customer']->SetPackage($package);
+        $package = new Package($_POST['package']);
+
+        $_SESSION['customerCounter']->SetPackage($package);
 
         header("location:seat.php");
     }
@@ -28,7 +29,6 @@
         <h3>Package Info</h3>
     </head>
 
-    <form action="package.php" method="get">
         <form action="package.php" method="post">
             <table>
                 <tr>
@@ -114,7 +114,6 @@
                     <td> RM 350.00 </td>
                     <td> [Image] </td>
                 </tr>
-        </form>
                 <tr>
                     <td colspan="6">
                         <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>    

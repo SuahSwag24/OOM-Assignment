@@ -12,14 +12,14 @@
         }
     }
 
+    $conn = mysqli_connect("localhost" , "root" , "" , "hotpotdatabase");
+    
     set_error_handler("customErrorHandler");
-
-
-    $page=isset($_GET["action"])?$_GET["action"]:"";
+    $page=isset($_POST["action"])?$_POST["action"]:"";
 
     if($page=="Back")
     {
-        header("location:booking.php");
+        header("Location:booking.php");
     }
 ?>
 
@@ -32,6 +32,7 @@
 
     <table>
         <tr>
+            <th> Order ID</th>
             <th> Name</th>
             <th> Pax</th>
             <th> Package</th>
@@ -42,32 +43,34 @@
 
         <?php
         
-            foreach($_SESSION['confirmedBooking'] as $customer)
-            {
+            $sql = "SELECT * FROM ordertable";
+            $result = $conn->query($sql);
 
-                
+            while($row = $result->fetch_assoc())
+            {
+                $customerResult = $conn->query("SELECT * FROM customer WHERE customerID = {$row['customerID']}");
+                $target = mysqli_fetch_assoc($customerResult);
 
                 echo 
                 "
                 <tr>
-                    <td>" . $customer->GetName() . " </td>
-                    <td>" . $customer->GetPax() . "</td>
-                    <td>" . $customer->GetPackage()->GetPackageNum() . "</td>
-                    <td>" . $customer->GetTable()->GetSeat() . "</td>
-                    <td>" . $customer->GetPackage()->GetPrice() . "</td>
-                    <td>" . $customer->GetTable()->GetStatus() . "</td>
+                    <td>" . $row['orderID'] . "</td>
+                    <td>" . $target['customerName'] . "</td>
+                    <td>" . $target['paxNumber'] . "</td>
+                    <td>" . $row['packageNum'] . "</td>
+                    <td>" . $row['seatNum'] . "</td>
+                    <td>" . $row['totalPrice'] . "</td>
+                    <td>" . $row['bookingStatus'] . "</td>
                 </tr>
                 ";
             }
-
-           
         
         ?>
 
     </table>
 
     <div class="cont2">
-        <form action="recentBookings.php" method="get">
+        <form action="recentBookings.php" method="post">
             <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>
         </form>
     </div>

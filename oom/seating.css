@@ -1,3 +1,4 @@
+
 .cont{
     width: 100%;
     height: 600px;
@@ -105,6 +106,13 @@ input[type=reset]{
     float: inline-start;
 }
 
+
+label:has(> input[type=checkbox]:disabled)
+{
+    background-color: red;
+} 
+
+
 /* Previous look of CSS utilizing container. Latest one is made with checkbox above.
 .showcase{
     text-align: left;
@@ -202,3 +210,8 @@ input[type=reset]{
     background-color: green;
 }
 */
+
+#negus
+{
+    background-color: red;
+}
