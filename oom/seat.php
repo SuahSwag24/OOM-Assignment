@@ -18,9 +18,6 @@
         header("location:payment.php");
     }
 
-    $_SESSION['customer']->DisplayCustomerInfo();
-    $_SESSION['customer']->GetPackage()->DisplayPackageInfo();
-
 ?>
 
 <html>
@@ -50,13 +47,13 @@
                 <!-- linkage code required --> 
 
                 <h3>Time: </h3>
-                <h4> From <input type="time" id="timeReserve" name="timeStart"> </h4>
-                <h4> To <input type="time" id="timeReserve" name="timeEnd"> </h4>
+                <h4> From <input type="time" id="timeReserve" name="timeStart" required> </h4>
+                <h4> To <input type="time" id="timeReserve" name="timeEnd" required> </h4>
                 
                 <h3>Date: </h3>
                 <input type="date" id="dateReserve" name="dateReserve">
                 <br><br>
-                <input type="submit" name="action" id="Next" value="Next" onclick="send()" >
+                <input type="submit" name="action" id="Next" value="Next" onclick="send()" required>
                 <br>
                 <input type="reset" name="action" value="Reset" onclick="reset()" >
                 <br><br>
