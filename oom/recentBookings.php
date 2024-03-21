@@ -39,6 +39,7 @@
             <th> Seat </th>
             <th> Price</th>
             <th> Status</th>
+            <th> Action</th>
         </tr>
 
         <?php
@@ -61,6 +62,7 @@
                     <td>" . $row['seatNum'] . "</td>
                     <td>" . $row['totalPrice'] . "</td>
                     <td>" . $row['bookingStatus'] . "</td>
+                    <td><a href=delete.php?id={$row['orderID']}>Delete</a></td>
                 </tr>
                 ";
             }
