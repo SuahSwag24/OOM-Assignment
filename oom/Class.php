@@ -96,13 +96,13 @@
 
     class Package
     {
-        private $packageNo, $packageName, $packageItem, $packageRecPax, $packagePrice, $packageImage;
+        private $packageNum, $packageName, $packageItem, $packageRecPax, $packagePrice, $packageImage;
 
         public function __construct($pNo)
         {
-            $this->packageNo = $pNo;
+            $this->packageNum = $pNo;
 
-            if($this->packageNo == "1")
+            if($this->packageNum == "1")
             {
                 $this->packageName = "The Cozy Couple";
                 $this->packageItem = "";
@@ -110,7 +110,7 @@
                 $this->packagePrice = "90.00";
                 $this->packageImage = "";
             }
-            else if($this->packageNo == "2")
+            else if($this->packageNum == "2")
             {
                 $this->packageName = "The Big Party";
                 $this->packageItem = "";
@@ -139,7 +139,7 @@
 
         public function DisplayPackageInfo()
         {
-            echo    "<p>Package Number: " . $this->packageNo .
+            echo    "<p>Package Number: " . $this->packageNum .
                     "<br>Package Name: " . $this->packageName .
                     "<br>Package Items: " . $this->packageItem .
                     "<br>Package Recommend Pax: " . $this->packageRecPax .
@@ -149,7 +149,7 @@
 
         public function GetPackageNum()
         {
-            return $this->packageNo;
+            return $this->packageNum;
         }
 
         public function GetPrice()
