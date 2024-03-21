@@ -71,40 +71,6 @@
 
     <br><br>
 
-    <div class="pcont">
-        <h3> 3. Payment details </h3>
-        <div class="wrapper">
-            <ul>
-                <label for="packageID">Package ID: </label>
-                <br><br>
-                <label for="displayPackageDetails">Package Details: </label>
-                <br><br>
-                <label for="totalPrice">Total Price: </label>
-            </ul>
-    </div>
-
-<!-- Previous Code Template - Please delete if not used.
-    <div class="pcont">
-        <div class="wrapper" id="1">
-        <div class="dot"></div>
-            <p>Method 1</p>
-            <input type="radio" name="paymentType" id="payment" value="payNow"><br>
-            <label for = "option-1" class="radio">Pay in full online</label>
-        </div>
-        </div>
-
-        <div class="space"></div>
-        
-        <div class="wrapper" id="2">
-        <div class="dot"></div>
-            <p>Method 2</p>
-            <input type="radio" name="paymentType" id="payment" value="payLater"><br>
-            <label for = "option-2" class="radio">Book now and pay later</label>
-        </div>
-        </div>
-    </div>
--->
-
         <div class="cont2">
             <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>    
             <input type="submit" name="action" id="Next" value="Next" onclick="send()">
