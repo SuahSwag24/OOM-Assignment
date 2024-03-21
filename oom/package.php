@@ -15,7 +15,7 @@
 
         $_SESSION['customerCounter']->SetPackage($package);
 
-        header("location:seat.php");
+        header("location:seat.php?dateReserve=".date('Y-m-d'));
     }
 
 

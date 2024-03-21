@@ -2,6 +2,7 @@
     include "Class.php";
     session_start();
 
+    $conn = mysqli_connect("localhost" , "root" , "" , "hotpotdatabase");
 
     $page=isset($_POST["action"])?$_POST["action"]:"";
 
@@ -26,6 +27,24 @@
         <link rel="stylesheet" href="oom.css">
         <h1>Hotpot Booking System</h1>
         <h3> Choose your seat </h3>
+
+        <script>
+            function updateDate() 
+            {
+                var selectedDate = document.getElementById("dateReserve").value;
+                localStorage.setItem("selectedDate", selectedDate);
+                var url = "seat.php?dateReserve=" + selectedDate;
+                window.location = url;
+            }
+            window.onload = function() 
+            {
+                var savedDate = localStorage.getItem("selectedDate");
+                if (savedDate) 
+                {
+                    document.getElementById("dateReserve").value = savedDate;
+                }
+            };
+        </script>
     </head>
 
 <body>
@@ -40,18 +59,12 @@
                     <input type="number" name="pax" min="1" style="width:60%; border:1px solid black; text-align:center;"
                            placeholder="Enter Number of People..." required>
                 </h3>
-                <h3>Tables Selected:</h3>
-                <!-- linkage code required -->
-
-                <h3>Package Selected:</h3>
-                <!-- linkage code required -->
-
                 <h3>Time:</h3>
-                <h4>From <input type="time" id="timeReserve" name="timeStart" required></h4>
-                <h4>To <input type="time" id="timeReserve" name="timeEnd" required></h4>
+                <h4>From <input type="time" id="timeReserve" name="timeStart" min="10:00:00" max="20:00:00" required></h4>
+                <h4>To <input type="time" id="timeReserve" name="timeEnd" min="10:00:00" max="20:00:00" required></h4>
 
                 <h3>Date:</h3>
-                <input type="date" id="dateReserve" name="dateReserve" min="">
+                <input type="date" id="dateReserve" name="dateReserve" min="<?php echo date('Y-m-d')?>" onchange="updateDate()">
                 <br><br>
                 <input type="submit" name="action" id="Next" value="Next" onclick="send()" required>
                 <br>
@@ -185,26 +198,36 @@
 
 <?php
 
-    if ($_SESSION['confirmedBooking'] !== null)
+    $sql = "SELECT * FROM ordertable WHERE bookingDate = '{$_GET['dateReserve']}'";
+    $result = $conn->query($sql);
+
+    if($result !== false && $result->num_rows > 0)
     {
         echo "<script>";
-        foreach ($_SESSION['confirmedBooking'] as $s)
+        while($row = $result->fetch_assoc())
         {
-            $bookedSeats = $s->GetTable()->GetSeat();
-
-            if ($bookedSeats) 
+            $bookedSeats = $row['seatNum'];
+            if($bookedSeats)
             {
                 $array = explode("," , $bookedSeats);
                 foreach($array as $b)
                 {
+                    
                     echo "
                             var isDisabled = document.getElementById('t" . $b . "').disabled;
                             document.getElementById('label$b').style.backgroundColor = 'red';
                     ";
+                    
                 }
+                
             }
         }
         echo "</script>";
     }
+    else
+    {
+        echo "No seats booked yet";
+    }
 
+    
 ?>
