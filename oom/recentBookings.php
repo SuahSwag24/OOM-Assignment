@@ -38,29 +38,33 @@
             <th> Package</th>
             <th> Seat </th>
             <th> Price</th>
+            <th> Date</th>
             <th> Status</th>
             <th> Action</th>
         </tr>
 
         <?php
         
-            $sql = "SELECT * FROM ordertable";
+            $sql = "SELECT *
+            FROM ordertable o, customer c
+            WHERE customerName = '{$_SESSION['customerCounter']->GetName()}'
+            AND o.customerID = c.customerID";
+
             $result = $conn->query($sql);
 
             while($row = $result->fetch_assoc())
             {
-                $customerResult = $conn->query("SELECT * FROM customer WHERE customerID = {$row['customerID']}");
-                $target = mysqli_fetch_assoc($customerResult);
 
                 echo 
                 "
                 <tr>
                     <td>" . $row['orderID'] . "</td>
-                    <td>" . $target['customerName'] . "</td>
-                    <td>" . $target['paxNumber'] . "</td>
+                    <td>" . $row['customerName'] . "</td>
+                    <td>" . $row['paxNumber'] . "</td>
                     <td>" . $row['packageNum'] . "</td>
                     <td>" . $row['seatNum'] . "</td>
                     <td>" . $row['totalPrice'] . "</td>
+                    <td>" . $row['bookingDate'] . "</td>
                     <td>" . $row['bookingStatus'] . "</td>
                     <td><a href=delete.php?id={$row['orderID']}>Delete</a></td>
                 </tr>

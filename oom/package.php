@@ -64,7 +64,7 @@
                     </td>
                     <td> 2 </td>
                     <td> RM 90.00 </td>
-                    <td> [Image] </td>
+                    <td> <img src="images/TheCozyCouple.png"> </td>
                 </tr>
                 <tr>
                     <td><input type="radio" name="package" value="2" required>  Package 2 </td>
@@ -88,7 +88,7 @@
                     </td>
                     <td> 5 - 6 </td>
                     <td> RM 220.00 </td>
-                    <td> [Image] </td>
+                    <td> <img src="images/TheBigParty.png"> </td>
                 </tr>
                 <tr>
                     <td><input type="radio" name="package" value="3" required>  Package 3 </td>
@@ -112,7 +112,7 @@
                     </td>
                     <td> 7 - 8 </td>
                     <td> RM 350.00 </td>
-                    <td> [Image] </td>
+                    <td> <img src="images/TheUltimateFeast.png"> </td>
                 </tr>
                 <tr>
                     <td colspan="6">

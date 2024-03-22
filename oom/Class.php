@@ -107,7 +107,7 @@
                 $this->packageItem = "";
                 $this->packageRecPax = "2";
                 $this->packagePrice = "90.00";
-                $this->packageImage = "";
+                $this->packageImage = "/images/TheCozyCouple.png";
             }
             else if($this->packageNum == "2")
             {
@@ -115,7 +115,7 @@
                 $this->packageItem = "";
                 $this->packageRecPax = "5 - 6";
                 $this->packagePrice = "220.00";
-                $this->packageImage = "";
+                $this->packageImage = "/images/TheBigParty.png";
             }
             else
             {
@@ -123,7 +123,7 @@
                 $this->packageItem = "";
                 $this->packageRecPax = "7 - 8";
                 $this->packagePrice = "350.00";
-                $this->packageImage = "";
+                $this->packageImage = "/images/TheUltimateFeast";
             }
             
             /*
@@ -159,6 +159,11 @@
         public function GetPackageName()
         {
             return $this->packageName;
+        }
+
+        public function GetImage()
+        {
+            return $this->packageImage;
         }
     }
 

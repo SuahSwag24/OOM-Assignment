@@ -5,8 +5,11 @@
 
     $page = isset($_GET["action"])?$_GET["action"]:"";
 
-    if($page == "Back")
+    if($page == "Log Out")
     {
+        session_unset();
+        session_destroy();
+        
         header("location:info.php");
     }
 
@@ -30,7 +33,7 @@
     
     <div class="cont2">
         <form action="booking.php" method="get">
-            <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>
+            <input type="submit" name="action" id="Back" value="Log Out" onclick="send()" formnovalidate>
         </form>
     </div>
 

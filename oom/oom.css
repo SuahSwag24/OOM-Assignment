@@ -29,7 +29,7 @@ ul{
     margin: 8px;
 }
 
-input[type=text], input[type=number]{
+input[type=text], input[type=number], input[type=password]{
     padding:5px;
     width: 100%;
     border: 1px transparent;
