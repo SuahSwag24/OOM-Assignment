@@ -25,8 +25,8 @@
         }
         else
         {
-            $sql = "INSERT INTO customer (customerName , customerGender , customerAge , paxNumber , customerPhoneNumber , customerEmail)
-            VALUES ('{$_SESSION['customerCounter']->GetName()}' , '{$_SESSION['customerCounter']->GetGender()}' , '{$_SESSION['customerCounter']->GetAge()}' , '{$_SESSION['customerCounter']->GetPax()}' , '{$_SESSION['customerCounter']->GetPhoneNum()}' , '{$_SESSION['customerCounter']->GetEmail()}')";
+            $sql = "INSERT INTO customer (customerName , customerGender , customerAge , customerPhoneNumber , customerEmail)
+            VALUES ('{$_SESSION['customerCounter']->GetName()}' , '{$_SESSION['customerCounter']->GetGender()}' , '{$_SESSION['customerCounter']->GetAge()}' , '{$_SESSION['customerCounter']->GetPhoneNum()}' , '{$_SESSION['customerCounter']->GetEmail()}')";
 
             $conn->query($sql);
         }
@@ -35,8 +35,8 @@
         $target = $result->fetch_assoc();
         $currentUser = $target['customerID'];
 
-        $sql =  "INSERT INTO ordertable (customerID , packageNum , seatNum , totalPrice , bookingStatus , bookingDate , bookingStartTime , bookingEndTime)
-                VALUES ('$currentUser' , '{$_SESSION['customerCounter']->GetPackage()->GetPackageNum()}' , '{$_SESSION['customerCounter']->GetTable()->GetSeat()}' , '{$_SESSION['customerCounter']->GetPackage()->GetPrice()}' , '{$_SESSION['customerCounter']->GetTable()->GetStatus()}' , '{$_SESSION['customerCounter']->GetTable()->GetDate()}' , '{$_SESSION['customerCounter']->GetTable()->GetStartTime()}' , '{$_SESSION['customerCounter']->GetTable()->GetEndTime()}')";
+        $sql =  "INSERT INTO ordertable (customerID , packageNum , seatNum , totalPrice , bookingStatus , bookingDate , bookingStartTime , bookingEndTime, paxNumber)
+                VALUES ('$currentUser' , '{$_SESSION['customerCounter']->GetPackage()->GetPackageNum()}' , '{$_SESSION['customerCounter']->GetTable()->GetSeat()}' , '{$_SESSION['customerCounter']->GetPackage()->GetPrice()}' , '{$_SESSION['customerCounter']->GetTable()->GetStatus()}' , '{$_SESSION['customerCounter']->GetTable()->GetDate()}' , '{$_SESSION['customerCounter']->GetTable()->GetStartTime()}' , '{$_SESSION['customerCounter']->GetTable()->GetEndTime()}' , '{$_SESSION['customerCounter']->GetPax()}')";
                 
         $conn->query($sql);
 
