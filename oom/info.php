@@ -5,7 +5,7 @@
     
     $url = "booking.php";
 
-    if($_POST['submit'] == "Login")
+    if(isset($_POST['submit']) && $_POST['submit'] == "Login")
     {
         header("Location:login.php");
     }
@@ -75,7 +75,7 @@
 
     <?php
     
-        if($_GET['error'] == "nameused")
+        if(isset($_GET['error']) && $_GET['error'] == "nameused")
         {
             echo "<center><p style = color:red>Username is used</p></center>";
         }
