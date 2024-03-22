@@ -22,9 +22,9 @@
         }
         else
         {
-            $_SESSION['customerCounter'] = new Customer($_POST['name'] , $_POST['gender'] , $_POST['age'] , "" , $_POST['phone'] , $_POST['email']);
-            $conn->query    ("INSERT INTO customer(customerName , password , customerGender , customerAge , customerPhoneNumber , customerEmail)
-                            VALUES ('{$_POST['name']}' , '{$_POST['password']}' , '{$_POST['gender']}' , '{$_POST['age']}' , '{$_POST['phone']}' , '{$_POST['email']}')");
+            $_SESSION['customerCounter'] = new Customer($_POST['name'] , $_POST['gender'] , $_POST['age'] , "" , $_POST['phone'] , $_POST['email'] , $_POST['cuisinetype']);
+            $conn->query    ("INSERT INTO customer(customerName , password , customerGender , customerAge , customerPhoneNumber , customerEmail, cuisineType)
+                            VALUES ('{$_POST['name']}' , '{$_POST['password']}' , '{$_POST['gender']}' , '{$_POST['age']}' , '{$_POST['phone']}' , '{$_POST['email']}' , '{$_POST['cuisinetype']}')");
 
             header("Location:booking.php");
         }   
@@ -65,6 +65,20 @@
                 <tr>
                     <th><label for="phone">Phone Number:</label></th>
                     <td><input type="text" name="phone" placeholder="Enter Phone Number..." required></td>
+                </tr>
+                <tr>
+                    <th><label for="cuisinetype">Preferred Cuisine Type:</label></th>
+                    <td>
+                        <select name="cuisinetype" required>
+                            <option value="No Preference" selected>No Preference</option>
+                            <option value="Chinese Hot Pot">Chinese Hot Pot</option>
+                            <option value="Malaysian Hot Pot">Malaysian Hot Pot</option>
+                            <option value="Korean Hot Pot">Korean Hot Pot</option>
+                            <option value="Thai Hot Pot">Thai Hot Pot</option>
+                            <option value="Vietnamese Hot Pot">Vietnamese Hot Pot</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" id="Submit" value="Proceed" name="submit"></td>

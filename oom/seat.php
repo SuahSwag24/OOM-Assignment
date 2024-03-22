@@ -12,11 +12,18 @@
     }
     else if($page=="Next")
     {
-        $seat = new Table(implode("," , $_POST['table']) , $_POST['timeStart'], $_POST['timeEnd'], $_POST['dateReserve']);
-        $_SESSION['customerCounter']->SetTable($seat);
-        $_SESSION['customerCounter']->SetPax($_POST['pax']);
+        if(isset($_POST['table']))
+        {
+            $seat = new Table(implode("," , $_POST['table']) , $_POST['timeStart'], $_POST['timeEnd'], $_POST['dateReserve']);
+            $_SESSION['customerCounter']->SetTable($seat);
+            $_SESSION['customerCounter']->SetPax($_POST['pax']);
 
-        header("location:payment.php");
+            header("location:payment.php");
+        }
+        else
+        {
+            header("location:seat.php?dateReserve=".date('Y-m-d') . "&error=notselected");
+        }
     }
 
 ?>
@@ -64,7 +71,7 @@
                 <h4>To <input type="time" id="timeReserve" name="timeEnd" min="10:00:00" max="20:00:00" required></h4>
 
                 <h3>Date:</h3>
-                <input type="date" id="dateReserve" name="dateReserve" min="<?php echo date('Y-m-d')?>" onchange="updateDate()">
+                <input type="date" id="dateReserve" name="dateReserve" min="<?php echo date('Y-m-d')?>" max="<?php echo date('Y-m-d', strtotime('+72 hours')) ?>" onchange="updateDate()">
                 <br><br>
                 <input type="submit" name="action" id="Next" value="Next" onclick="send()" required>
                 <br>
@@ -197,6 +204,11 @@
 </html>
 
 <?php
+
+    if($_GET['error'] === "notselected")
+    {
+        echo "<p style=color:red>Tables not selected.</p>";
+    }
 
     $sql = "SELECT * FROM ordertable WHERE bookingDate = '{$_GET['dateReserve']}'";
     $result = $conn->query($sql);

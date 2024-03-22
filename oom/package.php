@@ -5,6 +5,13 @@
 
     $page=isset($_POST["action"])?$_POST["action"]:"";
 
+    $conn = mysqli_connect("localhost" , "root" , "" , "hotpotdatabase");
+
+    function PreferenceCheck()
+    {
+        //Later
+    }
+
     if($page=="Back")
     {
         header("location:booking.php");
@@ -49,7 +56,7 @@
                 </tr>
                 <tr>
                     <td><input type="radio" name="package" value="1" required> Package 1 </td>
-                    <td> The Cozy Couple </td>
+                    <td> The Cozy Couple <?php   PreferenceCheck();   ?></td>
                     <td style="text-align: left;">
                         <ul>
                             <li>150g sliced beef</li>
@@ -114,6 +121,36 @@
                     <td> RM 350.00 </td>
                     <td> <img src="images/TheUltimateFeast.png"> </td>
                 </tr>
+
+                <?php
+
+                    $sql = "SELECT * FROM packagetable";
+                    $result = $conn->query($sql);
+
+                    if($result->num_rows > 0)
+                    {
+                        echo "<tr><td colspan=6><h3>Restaurant Specials</h3></td></tr>";
+                        while($row = $result->fetch_assoc())
+                        {
+                            echo
+                            "
+                            <tr>
+                            <td><input type='radio' name='package' value='{$row['packageNum']}' required>  Package {$row['packageNum']} </td>
+                            <td> {$row['packageName']} </td>
+                            <td style='text-align: left;'>
+                            <ul>
+                                <li>{$row['packageItem']}</li>
+                            </ul>
+                            </td>
+                            <td> {$row['recommendedPax']} </td>
+                            <td> RM {$row['packagePrice']} </td>
+                            <td></td>
+                        </tr>
+                            ";
+                        }
+                    }
+                    
+                ?>
                 <tr>
                     <td colspan="6">
                         <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>    

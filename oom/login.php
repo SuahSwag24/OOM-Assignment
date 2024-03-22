@@ -28,7 +28,7 @@
         }
         else
         {
-            $_SESSION['customerCounter'] = new Customer($target['customerName'] , $target['customerGender'] , $target['customerAge'] , $target['paxNumber'] , $target['customerPhoneNumber'] , $target['customerEmail']);
+            $_SESSION['customerCounter'] = new Customer($target['customerName'] , $target['customerGender'] , $target['customerAge'] , $target['paxNumber'] , $target['customerPhoneNumber'] , $target['customerEmail'] , $target['cuisineType']);
             header("Location:booking.php");
         }
     }

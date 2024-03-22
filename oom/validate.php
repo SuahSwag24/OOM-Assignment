@@ -59,83 +59,18 @@
 
         <div class="output">
         <form action="validate.php" method="post">
-                
-                <table class="info">
-                    <tr>
-                        <th colspan="2">User Info</th>
-                    </tr>
-                    <tr>
-                        <th>Name: </th>
-                        <td><?php echo $_SESSION['customerCounter']->GetName(); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Age: </th>
-                        <td><?php echo $_SESSION['customerCounter']->GetAge(); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Gender: </th>
-                        <td><?php echo $_SESSION['customerCounter']->GetGender(); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Email: </th>
-                        <td><?php echo $_SESSION['customerCounter']->GetEmail(); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Phone Number: </th>
-                        <td><?php echo $_SESSION['customerCounter']->GetPhoneNum(); ?></td>
-                    </tr>
-                </table>
-
-                <br>
-
-                <table class="order">
-                    <tr>
-                        <th colspan="2">Order Info</th>
-                    </tr>    
-                    <tr>
-                        <th>Pax: </th>
-                        <td><?php echo $_SESSION['customerCounter']->GetPax(); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Table: </th>
-                        <td><?php echo $_SESSION['customerCounter']->GetTable()->GetSeat(); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Date: </th>
-                        <td><?php echo $_SESSION['customerCounter']->GetTable()->GetDate(); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Time: </th>
-                        <td><?php echo $_SESSION['customerCounter']->GetTable()->GetStartTime(); ?> - <?php echo $_SESSION['customerCounter']->GetTable()->GetEndTime(); ?></td>
-                    </tr>
-                </table>
-
-                <br>
-
-                <table class="package">
-                    <tr>
-                        <th colspan="2">Package Info</th>
-                    </tr>
-                    <tr>
-                        <th>Package Name: </th>
-                        <td><?php echo $_SESSION['customerCounter']->GetPackage()->GetPackageName(); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Price: </th>
-                        <td>RM <?php echo $_SESSION['customerCounter']->GetPackage()->GetPrice(); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Payment Method: </th>
-                        <td><?php echo $_SESSION['customerCounter']->GetPayment()->GetPMethod(); ?></td>
-                    </tr>
-                </table>
+                <?php   $_SESSION['customerCounter']->DisplayFullInfo();    ?>
         </div>
+
+        <center><p><strong>Your booking will be pending for confirmation. The system will notify the booking confirmation via phone message or E-mail. Thank you.</strong></p></center>
+        <br>
 
         <div class="cont2">
-
-                <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>
-                <input type="submit" name="action" id="Confirm" value="Confirm" onclick="send()">
+        <input type="submit" name="action" id="Back" value="Back" onclick="send()" formnovalidate>
+        <input type="submit" name="action" id="Confirm" value="Confirm" onclick="send()">
             </form>
         </div>
+
+        
 
     </html>

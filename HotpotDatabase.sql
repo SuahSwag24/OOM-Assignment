@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 22, 2024 at 06:42 AM
+-- Generation Time: Mar 22, 2024 at 08:44 AM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -34,17 +34,16 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `paxNumber` int(2) NOT NULL,
   `customerPhoneNumber` varchar(255) NOT NULL,
   `customerEmail` varchar(255) NOT NULL,
+  `cuisineType` varchar(255) NOT NULL,
   PRIMARY KEY (`customerID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`customerID`, `customerName`, `password`, `customerGender`, `customerAge`, `paxNumber`, `customerPhoneNumber`, `customerEmail`) VALUES
-(5, 'Suah Li Jea Richie', 's', 'female', 2, 0, '0123456789', 'suahswag24@gmail.com'),
-(7, 'SuahSwag24', 's', 'male', 111, 0, '333', '222'),
-(8, '2', 's', 'female', 2, 0, '2', 'Suah Li Jea Richie');
+INSERT INTO `customer` (`customerID`, `customerName`, `password`, `customerGender`, `customerAge`, `paxNumber`, `customerPhoneNumber`, `customerEmail`, `cuisineType`) VALUES
+(10, 'Suah Li Jea Richie', 's', 'male', 20, 0, '0123456789', 'suahswag24@gmail.com', 'Malaysian Hot Pot');
 
 -- --------------------------------------------------------
 
@@ -63,17 +62,39 @@ CREATE TABLE IF NOT EXISTS `ordertable` (
   `bookingStartTime` time NOT NULL,
   `bookingEndTime` time NOT NULL,
   PRIMARY KEY (`orderID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `ordertable`
 --
 
 INSERT INTO `ordertable` (`orderID`, `customerID`, `packageNum`, `seatNum`, `totalPrice`, `bookingStatus`, `bookingDate`, `bookingStartTime`, `bookingEndTime`) VALUES
-(7, '4', '1', '1,2', 90, 'pending', '2024-03-22', '14:22:00', '14:22:00'),
-(6, '3', '1', '1,2,3', 90, 'pending', '2024-03-21', '18:30:00', '19:30:00'),
-(8, '5', '2', '6,7', 220, 'pending', '2024-03-22', '14:26:00', '16:29:00'),
-(9, '7', '3', '11,12,13', 350, 'pending', '2024-03-22', '11:27:00', '11:30:00');
+(10, '10', '1', '1,2', 90, 'pending', '2024-03-22', '15:53:00', '18:53:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `packagetable`
+--
+
+CREATE TABLE IF NOT EXISTS `packagetable` (
+  `packageNum` varchar(255) NOT NULL,
+  `packageName` varchar(255) NOT NULL,
+  `packageItem` longtext NOT NULL,
+  `packagePrice` double NOT NULL,
+  `packageImage` varchar(255) NOT NULL,
+  `packageCuisine` varchar(255) NOT NULL,
+  `recommendedPax` int(11) NOT NULL,
+  PRIMARY KEY (`packageNum`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `packagetable`
+--
+
+INSERT INTO `packagetable` (`packageNum`, `packageName`, `packageItem`, `packagePrice`, `packageImage`, `packageCuisine`, `recommendedPax`) VALUES
+('ATest', 'Test', 'Test', 20, '5', 'Others', 5),
+('A-Test2', 'Sandwich', 'Ham', 50, '', 'Others', 5);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

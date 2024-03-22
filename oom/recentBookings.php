@@ -64,12 +64,13 @@
                     <td>" . $row['packageNum'] . "</td>
                     <td>" . $row['seatNum'] . "</td>
                     <td>" . $row['totalPrice'] . "</td>
-                    <td>" . $row['bookingDate'] . "</td>
+                    <td> <div class='tooltip'>" . $row['bookingDate'] . "<span class='tooltiptext'>" . $row['bookingStartTime'] . " - " . $row['bookingEndTime'] . "</span></div></td>
                     <td>" . $row['bookingStatus'] . "</td>
                     <td><a href=delete.php?id={$row['orderID']}>Delete</a></td>
                 </tr>
                 ";
             }
+            
         
         ?>
 

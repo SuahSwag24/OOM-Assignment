@@ -7,7 +7,7 @@
 
     if($page=="Back")
     {
-        header("location:seat.php");
+        header("location:seat.php?dateReserve=".date('Y-m-d'));
     }
     else if($page=="Next")
     {
@@ -38,7 +38,7 @@
     <div class="pcont">
         <h3> 1. Choose your payment type </h3>
         <div class="wrapper">
-            <input type="radio" name="paymenttype" id="option-1" value="online">
+            <input type="radio" name="paymenttype" id="option-1" value="online" required>
             <input type="radio" name="paymenttype" id="option-2" value="paylater">
             <label for="option-1" class="option option-1">
                 <div class="dot"></div>
@@ -63,7 +63,7 @@
                 <option value="Master Card">Master Card</option>
                 <option value="Paypal">Paypal</option>
                 <option value="TouchNGo">Touch N' Go</option>
-                <option value="Cash">Cash</option>
+                <option value="Cash" selected>Cash</option>
                 <option value="Other">Other</option>
             </select>
         </form>

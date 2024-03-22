@@ -2,11 +2,11 @@
     
     class Customer
     {
-        private $customerName, $customerGender, $customerAge, $paxNumber, $customerPhoneNum, $customerEmail;
+        private $customerName, $customerGender, $customerAge, $paxNumber, $customerPhoneNum, $customerEmail, $cuisineType;
         private $selectedPackage;
         private $bookedTable;
         private $payment;
-        public function __construct($cName, $cGender, $cAge, $pxNo, $cPhone, $cEmail)
+        public function __construct($cName, $cGender, $cAge, $pxNo, $cPhone, $cEmail, $cuisine)
         {
             $this->customerName = $cName;
             $this->customerGender = $cGender;
@@ -14,6 +14,8 @@
             $this->paxNumber = $pxNo;
             $this->customerPhoneNum = $cPhone;
             $this->customerEmail = $cEmail;
+            $this->cuisineType = $cuisine;
+
         }
 
         public function DisplayCustomerInfo()
@@ -24,6 +26,79 @@
                     "<br>Pax Number: " . $this->paxNumber . 
                     "<br>Customer Phone Number: " . $this->customerPhoneNum . 
                     "<br>Customer Email: " . $this->customerEmail . "</p>" ;
+        }
+
+        public function DisplayFullInfo()
+        {
+            echo "<table class='info'>
+                    <tr>
+                        <th colspan='2'>User Info</th>
+                    </tr>
+                    <tr>
+                        <th>Name: </th>
+                        <td> {$this->GetName()} </td>
+                    </tr>
+                    <tr>
+                        <th>Age: </th>
+                        <td> {$this->GetAge()} </td>
+                    </tr>
+                    <tr>
+                        <th>Gender: </th>
+                        <td>  {$this->GetGender()} </td>
+                    </tr>
+                    <tr>
+                        <th>Email: </th>
+                        <td>  {$this->GetEmail()} </td>
+                    </tr>
+                    <tr>
+                        <th>Phone Number: </th>
+                        <td>  {$this->GetPhoneNum()} </td>
+                    </tr>
+                </table>
+
+                <br>
+
+                <table class='order'>
+                    <tr>
+                        <th colspan='2'>Order Info</th>
+                    </tr>    
+                    <tr>
+                        <th>Pax: </th>
+                        <td>  {$this->GetPax()} </td>
+                    </tr>
+                    <tr>
+                        <th>Table: </th>
+                        <td>  {$this->GetTable()->GetSeat()} </td>
+                    </tr>
+                    <tr>
+                        <th>Date: </th>
+                        <td>  {$this->GetTable()->GetDate()} </td>
+                    </tr>
+                    <tr>
+                        <th>Time: </th>
+                        <td>  {$this->GetTable()->GetStartTime()} - {$this->GetTable()->GetEndTime()} </td>
+                    </tr>
+                </table>
+
+                <br>
+
+                <table class='package'>
+                    <tr>
+                        <th colspan='2'>Package Info</th>
+                    </tr>
+                    <tr>
+                        <th>Package Name: </th>
+                        <td>  {$this->GetPackage()->GetPackageName()} </td>
+                    </tr>
+                    <tr>
+                        <th>Price: </th>
+                        <td>RM   {$this->GetPackage()->GetPrice()} </td>
+                    </tr>
+                    <tr>
+                        <th>Payment Method: </th>
+                        <td>  {$this->GetPayment()->GetPMethod()} </td>
+                    </tr>
+                </table>";
         }
 
         public function SetPackage(Package $package)
@@ -91,11 +166,16 @@
             return $this->customerPhoneNum;
         }
 
+        public function GetCuisine()
+        {
+            return $this->cuisineType;
+        }
+
     }
 
     class Package
     {
-        private $packageNum, $packageName, $packageItem, $packageRecPax, $packagePrice, $packageImage;
+        private $packageNum, $packageName, $packageItem, $packageRecPax, $packagePrice, $packageImage, $packageCuisine;
 
         public function __construct($pNo)
         {
@@ -108,6 +188,7 @@
                 $this->packageRecPax = "2";
                 $this->packagePrice = "90.00";
                 $this->packageImage = "/images/TheCozyCouple.png";
+                $this->packageCuisine = "";
             }
             else if($this->packageNum == "2")
             {
@@ -116,14 +197,34 @@
                 $this->packageRecPax = "5 - 6";
                 $this->packagePrice = "220.00";
                 $this->packageImage = "/images/TheBigParty.png";
+                $this->packageCuisine = "Korean Hot Pot";
             }
-            else
+            else if($this->packageNum == "3")
             {
                 $this->packageName = "The Ultimate Feast";
                 $this->packageItem = "";
                 $this->packageRecPax = "7 - 8";
                 $this->packagePrice = "350.00";
                 $this->packageImage = "/images/TheUltimateFeast";
+                $this->packageCuisine = "Chinese Hot Pot";
+            }
+            else
+            {
+                $conn = mysqli_connect("localhost" , "root" , "" , "hotpotdatabase");
+                
+                $result = $conn->query("SELECT * FROM packagetable WHERE packageNum = '{$this->packageNum}'");
+                if($result->num_rows > 0)
+                {
+                    while($row = $result->fetch_assoc())
+                    {
+                        $this->packageName = $row['packageName'];
+                        $this->packageItem = $row['packageItem'];
+                        $this->packageRecPax = $row['recommendedPax'];
+                        $this->packagePrice = $row['packagePrice'];
+                        $this->packageImage = $row['packageImage'];
+                        $this->packageCuisine = $row['packageCuisine'];
+                    }
+                }
             }
             
             /*
