@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 22, 2024 at 08:44 AM
+-- Generation Time: Mar 22, 2024 at 12:43 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -31,19 +31,16 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `password` varchar(255) NOT NULL,
   `customerGender` varchar(100) NOT NULL,
   `customerAge` int(3) NOT NULL,
-  `paxNumber` int(2) NOT NULL,
   `customerPhoneNumber` varchar(255) NOT NULL,
   `customerEmail` varchar(255) NOT NULL,
   `cuisineType` varchar(255) NOT NULL,
   PRIMARY KEY (`customerID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`customerID`, `customerName`, `password`, `customerGender`, `customerAge`, `paxNumber`, `customerPhoneNumber`, `customerEmail`, `cuisineType`) VALUES
-(10, 'Suah Li Jea Richie', 's', 'male', 20, 0, '0123456789', 'suahswag24@gmail.com', 'Malaysian Hot Pot');
 
 -- --------------------------------------------------------
 
@@ -61,15 +58,14 @@ CREATE TABLE IF NOT EXISTS `ordertable` (
   `bookingDate` date NOT NULL,
   `bookingStartTime` time NOT NULL,
   `bookingEndTime` time NOT NULL,
+  `paxNumber` int(11) NOT NULL,
   PRIMARY KEY (`orderID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `ordertable`
 --
 
-INSERT INTO `ordertable` (`orderID`, `customerID`, `packageNum`, `seatNum`, `totalPrice`, `bookingStatus`, `bookingDate`, `bookingStartTime`, `bookingEndTime`) VALUES
-(10, '10', '1', '1,2', 90, 'pending', '2024-03-22', '15:53:00', '18:53:00');
 
 -- --------------------------------------------------------
 
@@ -92,9 +88,6 @@ CREATE TABLE IF NOT EXISTS `packagetable` (
 -- Dumping data for table `packagetable`
 --
 
-INSERT INTO `packagetable` (`packageNum`, `packageName`, `packageItem`, `packagePrice`, `packageImage`, `packageCuisine`, `recommendedPax`) VALUES
-('ATest', 'Test', 'Test', 20, '5', 'Others', 5),
-('A-Test2', 'Sandwich', 'Ham', 50, '', 'Others', 5);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

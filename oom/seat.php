@@ -205,7 +205,7 @@
 
 <?php
 
-    if($_GET['error'] === "notselected")
+    if(isset($_GET['error']) && $_GET['error'] === "notselected")
     {
         echo "<p style=color:red>Tables not selected.</p>";
     }

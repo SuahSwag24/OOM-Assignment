@@ -5,7 +5,7 @@
 
     $conn = mysqli_connect("localhost" , "root" , "" , "hotpotdatabase");
 
-    if($_POST['submit'] == "Submit")
+    if(isset($_POST['submit']) && $_POST['submit'] == "Submit")
     {
         $result = $conn->query("SELECT * FROM customer WHERE customerName = '{$_POST['username']}'");
 
@@ -32,7 +32,7 @@
             header("Location:booking.php");
         }
     }
-    else if($_POST['submit'] == "Register")
+    else if(isset($_POST['submit']) && $_POST['submit'] == "Register")
     {
         header("Location:info.php");
     }
