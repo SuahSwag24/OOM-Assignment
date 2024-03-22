@@ -59,6 +59,7 @@
             <input type="number" step="0.01" name="packagePrice" id="" required><br>
 
             <label for="packageCuisine">Package Cuisine Type</label>
+            <select>
                 <option value="Chinese Hot Pot">Chinese Hot Pot</option>
                 <option value="Malaysian Hot Pot">Malaysian Hot Pot</option>
                 <option value="Korean Hot Pot">Korean Hot Pot</option>
